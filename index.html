@@ -19,7 +19,44 @@
         * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
         body {background-color: var(--background-color); color: var(--text-color); line-height: 1.6;}
         
-        
+        /* CSS for the awards navigation */
+        .awards-navigation {
+            margin-top: 20px; 
+            display: flex; 
+            justify-content: center; 
+            gap: 15px; 
+            flex-wrap: wrap;
+            padding-bottom: 20px; 
+        }
+        .awards-navigation a {
+            text-decoration: none; 
+            color: white; 
+            font-weight: 500; 
+            padding: 10px 20px; 
+            border-radius: 25px; 
+            transition: var(--transition); 
+            cursor: pointer;
+            background-color: var(--primary-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .awards-navigation a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        /* Style for inactive internal awards button (placeholder) */
+        .awards-navigation a.disabled-link {
+            opacity: 1; 
+            cursor: pointer; 
+        }
+        .awards-navigation a.disabled-link:hover {
+            transform: translateY(-2px);
+            background-color: var(--secondary-color);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        /* End of new awards navigation CSS */
+
+
         .main-container {display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px;}
         .profile-card {background-color: var(--card-background); border-radius: var(--border-radius); box-shadow: var(--shadow); padding: 40px; width: 100%; max-width: 500px; text-align: center;}
         .profile-image {width: 200px; height: 200px; border-radius: 50%; overflow: hidden; margin: 0 auto 30px; border: 5px solid var(--primary-color);}
@@ -45,7 +82,7 @@
         .cv-link {color: var(--primary-color); font-weight: bold; font-size: 1.1rem; text-decoration: underline; background-color: rgba(52, 152, 219, 0.1); padding: 10px 20px; border-radius: 20px; display: inline-block; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);}
         .cv-link:hover {background-color: rgba(52, 152, 219, 0.2); transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);}
         
-       
+        
         .details-container {max-width: 900px; margin: 0 auto; padding: 30px 20px; display: none;}
         .details-header {display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid #eee;}
         
@@ -76,7 +113,7 @@
         .timeline-description {padding-left: 20px;}
         .timeline-description li {margin-bottom: 8px;}
         
-       
+        
         .education-item {display: flex; margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid #eee; max-width: 700px; margin-left: auto; margin-right: auto;}
         .education-item:last-child {margin-bottom: 0; padding-bottom: 0; border-bottom: none;}
         .education-logo {width: 80px; height: 80px; margin-right: 20px; flex-shrink: 0;}
@@ -87,17 +124,99 @@
         .education-description {line-height: 1.6; color: var(--text-color);}
         
         
-        .achievements-container {display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 20px 0;}
-        .achievement-item {width: 300px; background-color: rgba(52, 152, 219, 0.05); border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease;}
-        .achievement-item:hover {transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);}
-        .achievement-image {width: 100%; height: 180px; overflow: hidden;}
-        .achievement-image img {width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;}
-        .achievement-item:hover .achievement-image img {transform: scale(1.1);}
-        .achievement-content {padding: 20px;}
-        .achievement-title {font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; color: var(--text-color);}
-        .achievement-description {font-size: 0.95rem; color: var(--text-light); line-height: 1.6;}
-        
-        
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+            justify-items: center;
+        }
+        .award-item {
+            background-color: rgba(52, 152, 219, 0.05);
+            border-radius: var(--border-radius);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .award-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .award-content {
+            padding: 20px;
+        }
+        .award-title {
+            font-size: 1.2rem; 
+            font-weight: 600; 
+            margin-bottom: 8px; 
+            color: var(--text-color);
+        }
+        .award-description {
+            font-size: 0.95rem; 
+            color: var(--text-light); 
+            line-height: 1.6;
+        }
+        .award-image {
+            width: 100%;
+            height: 200px; 
+            overflow: hidden;
+        }
+        .award-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .award-item:hover .award-image img {
+             transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+        /* Modal/Popup CSS */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            padding-top: 50px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.9); 
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 900px;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            opacity: 0.8;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
         .fade-in {animation: fadeIn 0.5s ease-in-out;}
         @keyframes fadeIn {from {opacity: 0;} to {opacity: 1;}}
         
@@ -109,9 +228,8 @@
             .name {font-size: 2rem;}
             .profile-image {width: 150px; height: 150px;}
             .details-header {flex-direction: column; gap: 15px;}
-            .skills-container {gap: 20px;}
-            .achievements-container {flex-direction: column; align-items: center;}
-            .achievement-item {width: 100%; max-width: 350px;}
+            .awards-grid {grid-template-columns: 1fr;} /* Single column on mobile */
+            .modal-content {width: 95%;}
         }
         @media (max-width: 480px) {
             .profile-card {padding: 30px 20px;}
@@ -121,12 +239,11 @@
             .icon {width: 25px; height: 25px;}
             .section-title {font-size: 1.3rem;}
             .page-navigation ul {flex-direction: column; gap: 10px;}
-            .skills-container {flex-direction: column; align-items: center;}
+            .awards-navigation {gap: 10px;}
         }
         @media print {
             body {background-color: white;}
-            .profile-card, .section {box-shadow: none;}
-            .page-navigation {display: none;}
+            .profile-card, .section, .modal {box-shadow: none; display: none !important;}
         }
     </style>
 </head>
@@ -254,6 +371,22 @@
             </div>
             <div class="section-content">
                 <div class="timeline">
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Vice President of Quality and Development</h3>
+                            <h4 class="timeline-place">
+                                <img src="2x3l2YcB_400x400.jpg" alt="Nywtk Logo">
+                                Nywtk Organization
+                            </h4>
+                            <ul class="timeline-description">
+                                <li>Leading continuous improvement by analyzing gaps and compliance indicators.</li>
+                                <li>Coordinating rapid correction plans with committee leaders.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -311,38 +444,14 @@
                 <h2 class="section-title">Achievements</h2>
             </div>
             <div class="section-content">
-                <div class="achievements-container">
-                    
-                    <div class="achievement-item">
-                        <div class="achievement-image">
-                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-05-09%20173815-zpjLNCL3ngYEpvRkFcUvP6ECYMiJms.png" alt="King Saud University Certificate">
-                        </div>
-                        <div class="achievement-content">
-                            <h3 class="achievement-title">King Saud University Recognition</h3>
-                            <p class="achievement-description">
-                                Certificate of Appreciation from King Saud University for participating in the King Saud University Hackathon, in recognition of the contribution and active participation in the university.
-                            </p>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="achievement-item">
-                        <div class="achievement-image">
-                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-05-09%20173754-FgIKvFxgbCPj2Yq6OQmgMpVubY1t6P.png" alt="IAU Certificate of Appreciation">
-                        </div>
-                        <div class="achievement-content">
-                            <h3 class="achievement-title">IAU Certificate of Appreciation</h3>
-                            <p class="achievement-description">
-                                IAU Certificate of Appreciation
-                                Recognition from Imam Abdulrahman Bin Faisal University for active participation and valuable contributions to the Hackathon qualithon initiative.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <nav class="awards-navigation">
+                    <a onclick="showPage('internal-awards-page')">Internal University Awards</a> 
+                    <a onclick="showPage('external-awards-page')">External Awards</a>
+                </nav>
             </div>
         </section>
-        
-    
+
+
         <section class="section">
             <div class="section-header">
                 <h2 class="section-title">Education</h2>
@@ -364,28 +473,219 @@
         </section>
     </div>
 
+    <div class="details-container" id="internal-awards-page">
+        <header class="details-header">
+            <h1 class="name">Internal University Awards</h1>
+            <nav class="page-navigation">
+                <ul>
+                    <li><a onclick="showPage('profile-page')">Main Page</a></li>
+                    <li><a onclick="showPage('details-page')">Detailed CV</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="section">
+            <div class="section-header"><h2 class="section-title">Shaqra University Recognitions</h2></div>
+            <div class="section-content">
+                <div class="awards-grid">
+                    
+                    <div class="award-item" onclick="openModal('1756658438608   سايبر.jpg')">
+                        <div class="award-image">
+                            <img src="1756658438608   سايبر.jpg" alt="Cybersecurity Club Certificate">
+                        </div>
+                        <div class="award-content">
+                            <h3 class="award-title">Cybersecurity Club Certificate</h3>
+                            <p class="award-description">
+                                Certificate of Appreciation and Recognition from Shaqra University Cybersecurity Club for distinguished leadership and significant efforts in managing the **Quality and Development Committee**, contributing greatly to the success of club activities and goals.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="award-item" onclick="openModal('1753323087829  قوقل.jpg')">
+                        <div class="award-image">
+                            <img src="1753323087829  قوقل.jpg" alt="Google Developer Group Certificate">
+                        </div>
+                        <div class="award-content">
+                            <h3 class="award-title">Google Developer Group Certificate</h3>
+                            <p class="award-description">
+                                Certificate of Appreciation from the Google Developer Group (GDG) at Shaqra University, recognizing dedicated and distinguished efforts in club activities for the academic year 1446 AH, which significantly contributed to the club's success and excellence.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="award-item" onclick="openModal('1746978705028  قيادة.jpg')">
+                        <div class="award-image">
+                            <img src="1746978705028  قيادة.jpg" alt="Student Leadership Certificate">
+                        </div>
+                        <div class="award-content">
+                            <h3 class="award-title">Student Leadership Program Certificate</h3>
+                            <p class="award-description">
+                                Certificate of Appreciation from Shaqra University Deanship of Student Affairs for distinguished participation in the **Student Leadership Program** for the academic year 1446 AH.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="award-item" onclick="openModal('مسلم العمير_page-0001ملصق ملهم.jpg')">
+                        <div class="award-image">
+                            <img src="مسلم العمير_page-0001ملصق ملهم.jpg" alt="Mulhim Poster Exhibition Certificate">
+                        </div>
+                        <div class="award-content">
+                            <h3 class="award-title">Research & Entrepreneurship Exhibition Certificate</h3>
+                            <p class="award-description">
+                                Certificate of Appreciation from Shaqra University Deanship of Research and Entrepreneurship for participation in the **Research Poster and Innovation Exhibition (25th edition)**, featuring the Mulhim: AI for Smart Course Assessment project.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="details-container" id="external-awards-page">
+        <header class="details-header">
+            <h1 class="name">External Awards</h1>
+            <nav class="page-navigation">
+                <ul>
+                    <li><a onclick="showPage('profile-page')">Main Page</a></li>
+                    <li><a onclick="showPage('details-page')">Detailed CV</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="section">
+            <div class="section-header"><h2 class="section-title">Hackathons, Volunteering & Recognitions</h2></div>
+            <div class="section-content">
+                <div class="awards-grid">
+                    
+                    <div class="award-item" onclick="openModal('ساعات تطوع.jpg')">
+                        <div class="award-image">
+                            <img src="ساعات تطوع.jpg" alt="National Center for Non-Profit Sector Volunteer Certificate">
+                        </div>
+                        <div class="award-content">
+                            <h3 class="award-title">National Center for Non-Profit Sector Volunteer Certificate</h3>
+                            <p class="award-description">
+                                Certificate of Volunteering recognizing **70 hours** contributed (July 9-28, 2023) where I served as the **Monitoring and Development Lead** for the volunteer opportunity (contributing to program preparations and arrangements).
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="award-item" onclick="openModal('شهادة مشاركة معتمدة-176_page-0001.jpg')">
+                        <div class="award-image">
+                            <img src="شهادة مشاركة معتمدة-176_page-0001.jpg" alt="KSU Hackathon Recognition">
+                        </div>
+                        <div class="award-content">
+                            <h3 class="award-title">KSU Student Partnership Hackathon</h3>
+                            <p class="award-description">
+                                Certificate of Appreciation from King Saud University's Student Partnership Program for participating in the fourth edition of the KSU Hackathon (1445 AH), promoting partnership and active contribution.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="award-item" onclick="openModal('ملهم_page-0001.jpg')">
+                        <div class="award-image">
+                            <img src="ملهم_page-0001.jpg" alt="IAU Qualithon Certificate of Appreciation">
+                        </div>
+                        <div class="award-content">
+                            <h3 class="award-title">IAU Qualithon Certificate (Team Mulhim)</h3>
+                            <p class="award-description">
+                                Recognition from Imam Abdulrahman Bin Faisal University (College of Science and Humanities - Jubail) for active participation and valuable contributions to the Qualithon Artificial Intelligence in Academic Quality Hackathon.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="award-item" onclick="openModal('مسلم عبدالعزيز العمير_page-0001.jpg')">
+                        <div class="award-image">
+                            <img src="مسلم عبدالعزيز العمير_page-0001.jpg" alt="Future Fintech Hackathon Certificate">
+                        </div>
+                        <div class="award-content">
+                            <h3 class="award-title">Future Fintech Hackathon Participation</h3>
+                            <p class="award-description">
+                                Recognition from King Saud University's Computer Science College, Future Technology Club, for active participation and distinguished efforts in the three-day Future Fintech Hackathon (September 5-7, 2025).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="myModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="img01">
+    </div>
+
+
     <script>
         function showPage(pageId) {
+            // Hide all containers
             document.getElementById('profile-page').style.display = 'none';
             document.getElementById('details-page').style.display = 'none';
-            document.getElementById(pageId).style.display = pageId === 'profile-page' ? 'flex' : 'block';
-            document.getElementById(pageId).classList.add('fade-in');
-            if (pageId === 'profile-page') {
-                document.getElementById('details-nav').classList.remove('active');
-                if (document.getElementById('home-nav-2')) {
-                    document.getElementById('home-nav-2').classList.add('active');
-                    document.getElementById('details-nav-2').classList.remove('active');
-                }
-            } else {
-                document.getElementById('details-nav').classList.add('active');
-                if (document.getElementById('home-nav-2')) {
-                    document.getElementById('home-nav-2').classList.remove('active');
-                    document.getElementById('details-nav-2').classList.add('active');
+            document.getElementById('internal-awards-page').style.display = 'none'; 
+            document.getElementById('external-awards-page').style.display = 'none'; 
+
+            // Show the required container and apply fade-in effect
+            const pageElement = document.getElementById(pageId);
+            pageElement.style.display = pageId === 'profile-page' ? 'flex' : 'block';
+            pageElement.classList.add('fade-in');
+
+            // Update navigation link activity states (if the elements exist)
+            const detailsNav2 = document.getElementById('details-nav-2');
+            const homeNav2 = document.getElementById('home-nav-2');
+
+            if (detailsNav2 && homeNav2) {
+                if (pageId === 'details-page' || pageId === 'internal-awards-page' || pageId === 'external-awards-page') {
+                    // If we are on the detailed CV page or its sub-pages, mark CV as active
+                    detailsNav2.classList.add('active');
+                    homeNav2.classList.remove('active');
+                } else if (pageId === 'profile-page') {
+                    // If we are on the main page
+                    detailsNav2.classList.remove('active');
+                    homeNav2.classList.add('active');
                 }
             }
         }
+
+        // Modal Functions
+        const modal = document.getElementById("myModal");
+        const modalImg = document.getElementById("img01");
+
+        function openModal(imagePath) {
+            // Mapping file names to the corresponding images based on file extensions.
+            let imageSource = '';
+
+            if (imagePath === 'ساعات تطوع.jpg') {
+                imageSource = 'ساعات تطوع.jpg'; // Volunteer Certificate
+            } else if (imagePath === 'ملهم_page-0001.jpg') { 
+                imageSource = 'ملهم_page-0001.jpg'; // IAU Qualithon
+            } else if (imagePath === 'شهادة مشاركة معتمدة-176_page-0001.jpg') {
+                imageSource = 'شهادة مشاركة معتمدة-176_page-0001.jpg'; // KSU Hackathon
+            } else if (imagePath === 'مسلم عبدالعزيز العمير_page-0001.jpg') {
+                 imageSource = 'مسلم عبدالعزيز العمير_page-0001.jpg'; // Fintech Hackathon
+            } else if (imagePath === '1756658438608   سايبر.jpg') {
+                imageSource = '1756658438608   سايبر.jpg'; // Cybersecurity Club
+            } else if (imagePath === '1753323087829  قوقل.jpg') {
+                imageSource = '1753323087829  قوقل.jpg'; // Google Developer Group
+            } else if (imagePath === '1746978705028  قيادة.jpg') {
+                imageSource = '1746978705028  قيادة.jpg'; // Student Leadership
+            } else if (imagePath === 'مسلم العمير_page-0001ملصق ملهم.jpg') {
+                imageSource = 'مسلم العمير_page-0001ملصق ملهم.jpg'; // Mulhim Poster Exhibition
+            }
+            
+            modal.style.display = "block";
+            modalImg.src = imageSource;
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+        
+        // Close modal when user clicks anywhere outside of the image
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Show the main page upon document load
         document.addEventListener('DOMContentLoaded', function() { showPage('profile-page'); });
     </script>
 </body>
 </html>
-
