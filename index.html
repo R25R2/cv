@@ -44,6 +44,7 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
+        /* Style for inactive internal awards button (placeholder) */
         .awards-navigation a.disabled-link {
             opacity: 1; 
             cursor: pointer; 
@@ -53,7 +54,7 @@
             background-color: var(--secondary-color);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
-        /* End of awards navigation CSS */
+        /* End of new awards navigation CSS */
 
 
         .main-container {display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px;}
@@ -87,30 +88,6 @@
         .details-header {display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid #eee;}
         
         
-        /* NEW STYLING FOR NAVIGATION BUTTONS IN DETAIL PAGES */
-        .details-header .page-navigation a {
-            padding: 10px 18px;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            border-radius: 5px;
-            font-weight: 600;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .details-header .page-navigation a:hover {
-            background-color: rgba(52, 152, 219, 0.1);
-            color: var(--secondary-color);
-        }
-        .details-header .page-navigation li.active a {
-            background-color: var(--primary-color);
-            color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .details-header .page-navigation li.active a:hover {
-            background-color: var(--secondary-color);
-        }
-        /* END NEW STYLING */
-
-
         .section {background-color: var(--card-background); border-radius: var(--border-radius); box-shadow: var(--shadow); margin-bottom: 30px; overflow: hidden;}
         .section-header {background-color: var(--primary-color); color: white; padding: 15px 20px;}
         .section-title {font-size: 1.5rem; font-weight: 600;}
@@ -239,8 +216,8 @@
             text-decoration: none;
             cursor: pointer;
         }
-        
-        
+
+
         .fade-in {animation: fadeIn 0.5s ease-in-out;}
         @keyframes fadeIn {from {opacity: 0;} to {opacity: 1;}}
         
@@ -512,9 +489,9 @@
             <div class="section-content">
                 <div class="awards-grid">
                     
-                    <div class="award-item" onclick="openModal('1756658438608   سايبر.jpg')">
+                    <div class="award-item" onclick="openModal('1756658438608   سايبر.jpg')">
                         <div class="award-image">
-                            <img src="1756658438608   سايبر.jpg" alt="Cybersecurity Club Certificate">
+                            <img src="1756658438608   سايبر.jpg" alt="Cybersecurity Club Certificate">
                         </div>
                         <div class="award-content">
                             <h3 class="award-title">Cybersecurity Club Certificate</h3>
@@ -524,9 +501,9 @@
                         </div>
                     </div>
 
-                    <div class="award-item" onclick="openModal('1753323087829  قوقل.jpg')">
+                    <div class="award-item" onclick="openModal('1753323087829  قوقل.jpg')">
                         <div class="award-image">
-                            <img src="1753323087829  قوقل.jpg" alt="Google Developer Group Certificate">
+                            <img src="1753323087829  قوقل.jpg" alt="Google Developer Group Certificate">
                         </div>
                         <div class="award-content">
                             <h3 class="award-title">Google Developer Group Certificate</h3>
@@ -536,9 +513,9 @@
                         </div>
                     </div>
                     
-                    <div class="award-item" onclick="openModal('1746978705028  قيادة.jpg')">
+                    <div class="award-item" onclick="openModal('1746978705028  قيادة.jpg')">
                         <div class="award-image">
-                            <img src="1746978705028  قيادة.jpg" alt="Student Leadership Certificate">
+                            <img src="1746978705028  قيادة.jpg" alt="Student Leadership Certificate">
                         </div>
                         <div class="award-content">
                             <h3 class="award-title">Student Leadership Program Certificate</h3>
@@ -575,7 +552,7 @@
             </nav>
         </header>
         <section class="section">
-            <div class="section-header"><h2 class="section-title">Hackathons, Volunteering & Achievements</h2></div>
+            <div class="section-header"><h2 class="section-title">Hackathons, Volunteering & Recognitions</h2></div>
             <div class="section-content">
                 <div class="awards-grid">
                     
@@ -591,7 +568,7 @@
                         </div>
                     </div>
                     
-                    <div class="award-item" onclick="openModal('شهادة مشاركة معتمدة-176.pdf')">
+                    <div class="award-item" onclick="openModal('شهادة مشاركة معتمدة-176_page-0001.jpg')">
                         <div class="award-image">
                             <img src="شهادة مشاركة معتمدة-176_page-0001.jpg" alt="KSU Hackathon Recognition">
                         </div>
@@ -603,7 +580,7 @@
                         </div>
                     </div>
 
-                    <div class="award-item" onclick="openModal('ملهم.pdf')">
+                    <div class="award-item" onclick="openModal('ملهم_page-0001.jpg')">
                         <div class="award-image">
                             <img src="ملهم_page-0001.jpg" alt="IAU Qualithon Certificate of Appreciation">
                         </div>
@@ -615,7 +592,7 @@
                         </div>
                     </div>
                     
-                    <div class="award-item" onclick="openModal('مسلم عبدالعزيز العمير cv external .pdf')">
+                    <div class="award-item" onclick="openModal('مسلم عبدالعزيز العمير_page-0001.jpg')">
                         <div class="award-image">
                             <img src="مسلم عبدالعزيز العمير_page-0001.jpg" alt="Future Fintech Hackathon Certificate">
                         </div>
@@ -642,6 +619,7 @@
             // Hide all containers
             document.getElementById('profile-page').style.display = 'none';
             document.getElementById('details-page').style.display = 'none';
+            // Renamed IDs: internal-awards-page -> internal-achievements-page, external-awards-page -> external-achievements-page
             document.getElementById('internal-achievements-page').style.display = 'none'; 
             document.getElementById('external-achievements-page').style.display = 'none'; 
 
@@ -672,10 +650,12 @@
         const modalImg = document.getElementById("img01");
 
         function openModal(imagePath) {
-            // NOTE: The modal now directly uses the provided image path from the award-item.
+            // Mapping file names to the corresponding image paths.
+            // Note: If running this code locally, ensure all image files are in the same directory.
+            let imageSource = imagePath; 
             
             modal.style.display = "block";
-            modalImg.src = imagePath;
+            modalImg.src = imageSource;
         }
 
         function closeModal() {
