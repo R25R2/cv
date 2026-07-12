@@ -16,6 +16,22 @@
             --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
         }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-color: #3498db;
+                --secondary-color: #5dade2;
+                --text-color: #e8e8e8;
+                --text-light: #a8a8a8;
+                --background-color: #14161a;
+                --card-background: #1e2126;
+                --shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            }
+            .award-item {background-color: rgba(52, 152, 219, 0.08);}
+            .about-text, .education-description, .skill-description, .award-description, .timeline-description li {color: var(--text-light);}
+            .details-header {border-bottom-color: #333;}
+            .education-item {border-bottom-color: #333;}
+            .timeline::before {background-color: #333;}
+        }
         * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
         body {background-color: var(--background-color); color: var(--text-color); line-height: 1.6;}
         
@@ -106,11 +122,22 @@
         .page-navigation {margin-top: 30px;}
         .page-navigation ul {display: flex; justify-content: center; list-style: none; gap: 20px; flex-wrap: wrap;}
         .page-navigation li {position: relative;}
-        .page-navigation a {text-decoration: none; color: var(--text-color); font-weight: 500; padding: 8px 16px; border-radius: 20px; transition: var(--transition); cursor: pointer;}
-        .page-navigation a:hover {color: var(--primary-color);}
-        .page-navigation li.active a {background-color: var(--primary-color); color: white;}
-        .cv-link {color: var(--primary-color); font-weight: bold; font-size: 1.1rem; text-decoration: underline; background-color: rgba(52, 152, 219, 0.1); padding: 10px 20px; border-radius: 20px; display: inline-block; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);}
-        .cv-link:hover {background-color: rgba(52, 152, 219, 0.2); transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);}
+        .page-navigation a {
+            text-decoration: none; 
+            color: white; 
+            font-weight: 500; 
+            padding: 10px 20px; 
+            border-radius: 20px; 
+            transition: var(--transition); 
+            cursor: pointer;
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        .page-navigation a:hover {background-color: var(--secondary-color); transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);}
+        .page-navigation li.active a {background-color: var(--secondary-color); color: white;}
+        .cv-link {color: white; font-weight: bold; font-size: 1.1rem; text-decoration: none; background-color: var(--primary-color); padding: 10px 20px; border-radius: 20px; display: inline-block; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);}
+        .cv-link:hover {background-color: var(--secondary-color); transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);}
         
         .details-container {max-width: 900px; margin: 0 auto; padding: 30px 20px; display: none;}
         .details-header {display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid #eee; flex-wrap: wrap; gap: 15px;}
@@ -220,6 +247,7 @@
         .award-download {
             display: inline-block;
             margin-top: 10px;
+            margin-right: 6px;
             padding: 6px 14px;
             background-color: var(--secondary-color);
             color: white;
@@ -310,8 +338,8 @@
             <div class="profile-image">
                 <img src="personal-photo.jpg" alt="Personal Photo">
             </div>
-            <h1 class="name" data-en="Musallam Alomair" data-ar="مسلم العمير">Musallam Alomair</h1>
-            <p class="title" data-en="Student" data-ar="طالب">Student</p>
+            <h1 class="name" data-en="Musallam Alomair" data-ar="مسلّم العمير">Musallam Alomair</h1>
+            <p class="title" data-en="Computer Science Student" data-ar="طالب علوم حاسب">Computer Science Student</p>
             
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/musallam-alomair-08a5392a2/" target="_blank" class="social-link linkedin">
@@ -329,16 +357,7 @@
                             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                         </svg>
                     </div>
-                    <span data-en="Email" data-ar="البريد">Email</span>
-                </a>
-                
-                <a href="https://api.whatsapp.com/send/?phone=966535858922&text&type=phone_number&app_absent=0" target="_blank" class="social-link whatsapp">
-                    <div class="icon-container">
-                        <svg viewBox="0 0 24 24" class="icon">
-                            <path d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.174-.3-.019-.465.13-.615.136-.135.301-.345.451-.523.146-.181.194-.301.297-.496.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.195 2.105 3.195 5.1 4.485.714.3 1.27.48 1.704.629.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345z"/>
-                        </svg>
-                    </div>
-                    <span>WhatsApp</span>
+                    <span data-en="Email" data-ar="البريد الإلكتروني">Email</span>
                 </a>
             </div>
             
@@ -350,11 +369,10 @@
         </div>
     </div>
 
-
     
     <div class="details-container" id="details-page">
         <header class="details-header">
-            <h1 class="name" data-en="Musallam Alomair" data-ar="مسلم العمير">Musallam Alomair</h1>
+            <h1 class="name" data-en="Musallam Alomair" data-ar="مسلّم العمير">Musallam Alomair</h1>
             <nav class="page-navigation">
                 <ul>
                     <li id="home-nav-2"><a onclick="showPage('profile-page')" data-en="Main Page" data-ar="الصفحة الرئيسية">Main Page</a></li>
@@ -369,8 +387,9 @@
                 <h2 class="section-title" data-en="About Me" data-ar="نبذة عني">About Me</h2>
             </div>
             <div class="section-content">
-                <p class="about-text" data-en="A Technology Professional and Computer Science student specializing in Artificial Intelligence, Machine Learning, and Application Development. I combine emerging proficiency in Python with solid skills in HTML, JavaScript, CSS, and SQL, alongside distinguished expertise in project management and user interface design. Currently, I serve as Vice President of Quality and Development at Nywtk Organization, responsible for leading continuous improvement, analyzing gaps, and coordinating rapid correction plans with committee leaders. I am also an active Executive Board Member in the Google Club, contributing to strategic planning and student representation. In the previous year, I gained valuable experience as the Quality and Development Team Leader at the Cybersecurity Club, where I led efforts to implement quality standards and develop strategies to improve project quality." data-ar="متخصص تقني وطالب علوم حاسب أركز على الذكاء الاصطناعي وتعلم الآلة وتطوير التطبيقات. أجمع بين مهارات ناشئة في بايثون وأساسيات قوية في HTML وJavaScript وCSS وSQL، إضافة إلى خبرة متميزة في إدارة المشاريع وتصميم واجهات المستخدم. أشغل حاليًا منصب نائب رئيس الجودة والتطوير في مؤسسة نويتك، وأتولى قيادة التحسين المستمر وتحليل الفجوات وتنسيق خطط التصحيح السريع مع قادة اللجان. كما أنا عضو فاعل في مجلس إدارة نادي جوجل، وأساهم في التخطيط الاستراتيجي وتمثيل الطلاب. في العام السابق، اكتسبت خبرة قيّمة كقائد فريق الجودة والتطوير في نادي الأمن السيبراني، حيث قدت جهود تطبيق معايير الجودة وتطوير استراتيجيات تحسين جودة المشاريع.">
-                Results-driven Technology Professional and Computer Science student specializing in Artificial  Intelligence, Machine Learning, Web Development, and Data Analysis. Combines strong technical foundation (Python, HTML/CSS/SQL) with distinguished expertise in Project Management and UI/UX Design. Proven executive experience, serving as Vice President of Quality and Development (Nywtk), driving continuous improvement and strategic organizational coordination.                </p>
+                <p class="about-text" data-en="A dedicated Computer Science student specializing in Artificial Intelligence, Machine Learning, and Application Development. I combine proficiency in Python with solid skills in HTML, CSS, JavaScript, and SQL, alongside distinguished expertise in project management and UI/UX design. Currently, I am an AI & Data Analysis Trainee at Ejada and serve as the Vice President of Quality and Development at Neotech Organization, where I lead continuous improvement initiatives. I am also an active Executive Board Member at the Google Developer Student Club (GDSC), contributing to strategic planning and organizing technical events." data-ar="طالب شغوف في علوم الحاسب متخصص في الذكاء الاصطناعي، تعلم الآلة، وتطوير التطبيقات. أجمع بين الكفاءة في لغة بايثون ومهارات قوية في HTML وCSS وJavaScript وSQL، إلى جانب خبرة متميزة في إدارة المشاريع وتصميم واجهات المستخدم (UI/UX). أعمل حالياً كمتدرب في الذكاء الاصطناعي وتحليل البيانات في شركة إجادة، وأشغل منصب نائب رئيس الجودة والتطوير في مؤسسة نويتك، حيث أقود مبادرات التحسين المستمر. كما أنني عضو تنفيذي فاعل في مجلس إدارة نادي جوجل للمطورين (GDSC)، وأساهم في التخطيط الاستراتيجي وتنظيم الفعاليات التقنية.">
+                    A dedicated Computer Science student specializing in Artificial Intelligence, Machine Learning, and Application Development. I combine proficiency in Python with solid skills in HTML, CSS, JavaScript, and SQL, alongside distinguished expertise in project management and UI/UX design. Currently, I am an AI & Data Analysis Trainee at Ejada and serve as the Vice President of Quality and Development at Neotech Organization, where I lead continuous improvement initiatives. I am also an active Executive Board Member at the Google Developer Student Club (GDSC), contributing to strategic planning and organizing technical events.
+                </p>
             </div>
         </section>
         
@@ -387,9 +406,9 @@
                                 <path d="M14.6,16.6L19.2,12L14.6,7.4L16,6L22,12L16,18L14.6,16.6M9.4,16.6L4.8,12L9.4,7.4L8,6L2,12L8,18L9.4,16.6Z" fill="white"/>
                             </svg>
                         </div>
-                        <div class="skill-name" data-en="Programmer" data-ar="مبرمج">Programmer</div>
-                        <div class="skill-description" data-en="Experience in programming and software development using various languages such as Python, and html and css along with sql" data-ar="خبرة في البرمجة وتطوير البرمجيات باستخدام لغات متعددة مثل بايثون، وHTML وCSS إضافة إلى SQL">
-                            Experience in programming and software development using various languages such as Python, and html and css along with sql
+                        <div class="skill-name" data-en="Programming" data-ar="البرمجة">Programming</div>
+                        <div class="skill-description" data-en="Proficient in software development using Python, HTML, CSS, and SQL." data-ar="خبرة في تطوير البرمجيات باستخدام بايثون، HTML، CSS، وSQL.">
+                            Proficient in software development using Python, HTML, CSS, and SQL.
                         </div>
                     </div>
 
@@ -400,9 +419,9 @@
                                 <path d="M20.71,4.63L19.37,3.29C19,2.9 18.35,2.9 17.96,3.29L9,12.25L11.75,15L20.71,6.04C21.1,5.65 21.1,5 20.71,4.63M7,14A3,3 0 0,0 4,17C4,18.31 2.84,19 2,19C2.92,20.22 4.5,21 6,21C8.41,21 10,19.41 10,17C10,15.61 9.53,14.32 8.76,13.25L7,14Z" fill="white"/>
                             </svg>
                         </div>
-                        <div class="skill-name" data-en="UI Design" data-ar="تصميم واجهات المستخدم">UI Design</div>
-                        <div class="skill-description" data-en="Design of attractive and user-friendly interfaces with a focus on user experience" data-ar="تصميم واجهات جذابة وسهلة الاستخدام مع التركيز على تجربة المستخدم">
-                            Design of attractive and user-friendly interfaces with a focus on user experience
+                        <div class="skill-name" data-en="UI/UX Design" data-ar="تصميم واجهات المستخدم">UI/UX Design</div>
+                        <div class="skill-description" data-en="Designing intuitive, attractive, and user-friendly interfaces with a strong focus on user experience." data-ar="تصميم واجهات مستخدم تفاعلية وجذابة مع تركيز عالٍ على تحسين تجربة المستخدم (UX).">
+                            Designing intuitive, attractive, and user-friendly interfaces with a strong focus on user experience.
                         </div>
                     </div>
                     
@@ -413,8 +432,8 @@
                             </svg>
                         </div>
                         <div class="skill-name" data-en="Project Management" data-ar="إدارة المشاريع">Project Management</div>
-                        <div class="skill-description" data-en="Efficient and effective project management with a focus on achieving goals within the timeline" data-ar="إدارة فعالة وكفؤة للمشاريع مع التركيز على تحقيق الأهداف ضمن الجدول الزمني المحدد">
-                            Efficient and effective project management with a focus on achieving goals within the timeline
+                        <div class="skill-description" data-en="Effective project management, ensuring goals are met efficiently and within deadlines." data-ar="إدارة المشاريع بفاعلية لضمان تحقيق الأهداف ضمن الجداول الزمنية المحددة.">
+                            Effective project management, ensuring goals are met efficiently and within deadlines.
                         </div>
                     </div>
                 </div>
@@ -424,7 +443,7 @@
         
         <section class="section">
             <div class="section-header">
-                <h2 class="section-title" data-en="Experience" data-ar="الخبرات">Experience</h2>
+                <h2 class="section-title" data-en="Experience" data-ar="الخبرات العملية">Experience</h2>
             </div>
             <div class="section-content">
                 <div class="timeline">
@@ -432,14 +451,28 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h3 class="timeline-title" data-en="Vice President of Quality and Development" data-ar="نائب رئيس الجودة والتطوير">Vice President of Quality and Development</h3>
+                            <h3 class="timeline-title" data-en="AI & Data Analysis Trainee" data-ar="متدرب في الذكاء الاصطناعي وتحليل البيانات">AI & Data Analysis Trainee</h3>
                             <h4 class="timeline-place">
-                                <img src="2x3l2YcB_400x400.jpg" alt="Nywtk Logo">
-                                <span data-en="Nywtk Organization" data-ar="مؤسسة نويتك">Nywtk Organization</span>
+                                <img src="ejada_logo.jpeg" alt="Ejada Logo">
+                                <span data-en="Ejada" data-ar="إجادة">Ejada</span>
                             </h4>
                             <ul class="timeline-description">
-                                <li data-en="Leading continuous improvement by analyzing gaps and compliance indicators." data-ar="قيادة التحسين المستمر من خلال تحليل الفجوات ومؤشرات الالتزام.">Leading continuous improvement by analyzing gaps and compliance indicators.</li>
-                                <li data-en="Coordinating rapid correction plans with committee leaders." data-ar="تنسيق خطط التصحيح السريع مع قادة اللجان.">Coordinating rapid correction plans with committee leaders.</li>
+                                <li data-en="Participating in artificial intelligence and data analysis projects as part of a professional internship program." data-ar="المشاركة في مشاريع الذكاء الاصطناعي وتحليل البيانات ضمن برنامج التدريب المهني.">Participating in artificial intelligence and data analysis projects as part of a professional internship program.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title" data-en="Vice President of Quality and Development" data-ar="نائب رئيس الجودة والتطوير">Vice President of Quality and Development</h3>
+                            <h4 class="timeline-place">
+                                <img src="2x3l2YcB_400x400.jpg" alt="Neotech Logo">
+                                <span data-en="Neotech Organization" data-ar="مؤسسة نويتك">Neotech Organization</span>
+                            </h4>
+                            <ul class="timeline-description">
+                                <li data-en="Leading continuous improvement initiatives by analyzing performance gaps and compliance indicators." data-ar="قيادة مبادرات التحسين المستمر من خلال تحليل فجوات الأداء ومؤشرات الالتزام.">Leading continuous improvement initiatives by analyzing performance gaps and compliance indicators.</li>
+                                <li data-en="Coordinating and implementing rapid corrective action plans with committee leaders." data-ar="تنسيق وتطبيق خطط التصحيح السريع بالتعاون مع قادة اللجان.">Coordinating and implementing rapid corrective action plans with committee leaders.</li>
                             </ul>
                         </div>
                     </div>
@@ -453,9 +486,8 @@
                                 <span data-en="Cybersecurity Club" data-ar="نادي الأمن السيبراني">Cybersecurity Club</span>
                             </h4>
                             <ul class="timeline-description">
-                                <li data-en="Leading the quality and development team and coordinating tasks" data-ar="قيادة فريق الجودة والتطوير وتنسيق المهام">Leading the quality and development team and coordinating tasks</li>
-                                <li data-en="Developing strategies to improve project quality" data-ar="تطوير استراتيجيات لتحسين جودة المشاريع">Developing strategies to improve project quality</li>
-                                <li data-en="Implementing quality standards and best practices" data-ar="تطبيق معايير الجودة وأفضل الممارسات">Implementing quality standards and best practices</li>
+                                <li data-en="Led the Quality and Development team, effectively coordinating and delegating tasks." data-ar="قيادة فريق الجودة والتطوير وتنسيق المهام بين الأعضاء بفاعلية.">Led the Quality and Development team, effectively coordinating and delegating tasks.</li>
+                                <li data-en="Developed strategies and implemented best practices to enhance overall project quality." data-ar="تطوير استراتيجيات وتطبيق أفضل الممارسات للارتقاء بجودة المشاريع.">Developed strategies and implemented best practices to enhance overall project quality.</li>
                             </ul>
                         </div>
                     </div>
@@ -463,15 +495,14 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h3 class="timeline-title" data-en="Active Member" data-ar="عضو فاعل">Active Member</h3>
+                            <h3 class="timeline-title" data-en="Active Member & Organizer" data-ar="عضو فاعل ومنظم">Active Member & Organizer</h3>
                             <h4 class="timeline-place">
                                 <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%D8%AC%D8%A7%D9%85%D8%B9%D8%A9%20%D8%B4%D9%82%D8%B1%D8%A7-5J0BwVJER88UEc7GzcPrQbHtWDfOUr.png" alt="Student Leadership Club Logo">
                                 <span data-en="Student Leadership Club" data-ar="نادي القيادة الطلابية">Student Leadership Club</span>
                             </h4>
                             <ul class="timeline-description">
-                                <li data-en="Participating in organizing student events and activities" data-ar="المشاركة في تنظيم الفعاليات والأنشطة الطلابية">Participating in organizing student events and activities</li>
-                                <li data-en="Developing leadership and teamwork skills" data-ar="تطوير مهارات القيادة والعمل الجماعي">Developing leadership and teamwork skills</li>
-                                <li data-en="Contributing to student community development initiatives" data-ar="المساهمة في مبادرات تطوير المجتمع الطلابي">Contributing to student community development initiatives</li>
+                                <li data-en="Actively organized and managed various student events and technical activities." data-ar="المشاركة الفاعلة في تنظيم وإدارة الفعاليات والأنشطة الطلابية والتقنية.">Actively organized and managed various student events and technical activities.</li>
+                                <li data-en="Contributed to initiatives aimed at developing the student community." data-ar="المساهمة في المبادرات الهادفة إلى تطوير المجتمع الطلابي.">Contributed to initiatives aimed at developing the student community.</li>
                             </ul>
                         </div>
                     </div>
@@ -479,15 +510,15 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h3 class="timeline-title" data-en="Club Management in GDG" data-ar="إدارة النادي في GDG">Club Management in GDG</h3>
+                            <h3 class="timeline-title" data-en="Executive Board Member" data-ar="عضو مجلس إدارة تنفيذي">Executive Board Member</h3>
                             <h4 class="timeline-place">
                                 <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-05-04%20at%2000.24.48_5c474272.jpg-Gbf2Gb2C3joZWsV5usrabFHyfR1udI.jpeg" alt="Google Club Logo">
-                                <span data-en="Google Club" data-ar="نادي جوجل">Google Club</span>
+                                <span data-en="Google Developer Student Club (GDSC)" data-ar="نادي جوجل للمطورين (GDSC)">Google Developer Student Club (GDSC)</span>
                             </h4>
                             <ul class="timeline-description">
-                                <li data-en="Student Representation: Representing the voice and interests of students in board meetings." data-ar="تمثيل الطلاب: تمثيل صوت ومصالح الطلاب في اجتماعات مجلس الإدارة.">Student Representation: Representing the voice and interests of students in board meetings.</li>
-                                <li data-en="Decision-Making: Participating in administrative decisions and strategic planning for the organization or club." data-ar="اتخاذ القرار: المشاركة في القرارات الإدارية والتخطيط الاستراتيجي للمؤسسة أو النادي.">Decision-Making: Participating in administrative decisions and strategic planning for the organization or club.</li>
-                                <li data-en="Planning and Oversight: Assisting in the development of activity and event plans, and overseeing their execution." data-ar="التخطيط والإشراف: المساعدة في وضع خطط الأنشطة والفعاليات والإشراف على تنفيذها.">Planning and Oversight: Assisting in the development of activity and event plans, and overseeing their execution.</li>
+                                <li data-en="Student Representation: Advocated for student interests and voices during board meetings." data-ar="تمثيل الطلاب: إيصال صوت الطلاب ومصالحهم والدفاع عنها في اجتماعات مجلس الإدارة.">Student Representation: Advocated for student interests and voices during board meetings.</li>
+                                <li data-en="Strategic Planning: Participated in core administrative decisions and strategic planning for the club." data-ar="التخطيط الاستراتيجي: المشاركة في اتخاذ القرارات الإدارية الجوهرية ووضع الخطط الاستراتيجية للنادي.">Strategic Planning: Participated in core administrative decisions and strategic planning for the club.</li>
+                                <li data-en="Event Management: Assisted in developing and overseeing the execution of club activities and technical events." data-ar="إدارة الفعاليات: المساعدة في إعداد خطط الأنشطة والفعاليات التقنية والإشراف على تنفيذها.">Event Management: Assisted in developing and overseeing the execution of club activities and technical events.</li>
                             </ul>
                         </div>
                     </div>
@@ -502,8 +533,8 @@
             </div>
             <div class="section-content">
                 <nav class="awards-navigation">
-                    <a onclick="showPage('internal-achievements-page')" data-en="Internal University Achievements" data-ar="إنجازات داخلية بالجامعة">Internal University Achievements</a> 
-                    <a onclick="showPage('external-achievements-page')" data-en="External Achievements" data-ar="إنجازات خارجية">External Achievements</a>
+                    <a onclick="showPage('internal-achievements-page')" data-en="Internal University Achievements" data-ar="الإنجازات الجامعية">Internal University Achievements</a> 
+                    <a onclick="showPage('external-achievements-page')" data-en="External Achievements" data-ar="الإنجازات اللامنهجية">External Achievements</a>
                     <a onclick="showPage('certificates-page')" data-en="Certificates" data-ar="الشهادات">Certificates</a>
                     <a onclick="showPage('projects-page')" data-en="Projects" data-ar="المشاريع">Projects</a>
                 </nav>
@@ -521,10 +552,10 @@
                         <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%D8%AC%D8%A7%D9%85%D8%B9%D8%A9%20%D8%B4%D9%82%D8%B1%D8%A7-5J0BwVJER88UEc7GzcPrQbHtWDfOUr.png" alt="Shaqra University Logo">
                     </div>
                     <div class="education-details">
-                        <h3 class="education-degree" data-en="Bachelor of Computer Science" data-ar="بكالوريوس علوم الحاسب">Bachelor of Computer Science</h3>
+                        <h3 class="education-degree" data-en="Bachelor of Science in Computer Science" data-ar="بكالوريوس علوم الحاسب">Bachelor of Science in Computer Science</h3>
                         <h4 class="education-institution" data-en="Shaqra University" data-ar="جامعة شقراء">Shaqra University</h4>
-                        <p class="education-description" data-en="Currently studying Computer Science at Shaqra University, focusing on Artificial Intelligence, Machine Learning, and Application Development." data-ar="أدرس حاليًا علوم الحاسب في جامعة شقراء، مع التركيز على الذكاء الاصطناعي وتعلم الآلة وتطوير التطبيقات.">
-                            Currently studying Computer Science at Shaqra University, focusing on Artificial Intelligence, Machine Learning, and Application Development.
+                        <p class="education-description" data-en="Currently pursuing a Bachelor's degree in Computer Science (Expected Graduation: 2027, GPA: 4.24/5.0). Specializing in Artificial Intelligence, Machine Learning, and Application Development." data-ar="أدرس حالياً بكالوريوس علوم الحاسب (سنة التخرج المتوقعة: 2027، المعدل التراكمي: 4.24/5.0). أركز بشكل خاص على الذكاء الاصطناعي، تعلم الآلة، وتطوير التطبيقات.">
+                            Currently pursuing a Bachelor's degree in Computer Science (Expected Graduation: 2027, GPA: 4.24/5.0). Specializing in Artificial Intelligence, Machine Learning, and Application Development.
                         </p>
                     </div>
                 </div>
@@ -534,7 +565,7 @@
 
     <div class="details-container" id="internal-achievements-page">
         <header class="details-header">
-            <h1 class="name" data-en="Internal University Achievements" data-ar="الإنجازات الداخلية بالجامعة">Internal University Achievements</h1>
+            <h1 class="name" data-en="Internal University Achievements" data-ar="الإنجازات الجامعية">Internal University Achievements</h1>
             <nav class="page-navigation">
                 <ul>
                     <li><a onclick="showPage('profile-page')" data-en="Main Page" data-ar="الصفحة الرئيسية">Main Page</a></li>
@@ -543,7 +574,7 @@
             </nav>
         </header>
         <section class="section">
-            <div class="section-header"><h2 class="section-title" data-en="Shaqra University Achievements" data-ar="إنجازات جامعة شقراء">Shaqra University Achievements</h2></div>
+            <div class="section-header"><h2 class="section-title" data-en="My University Achievements" data-ar="الإنجازات الجامعية">My University Achievements</h2></div>
             <div class="section-content">
                 <div class="awards-grid">
                     
@@ -566,7 +597,7 @@
                         <div class="award-content">
                             <h3 class="award-title">Google Developer Group Certificate</h3>
                             <p class="award-description">
-                                Certificate of Appreciation from the Google Developer Group (GDG) at Shaqra University, recognizing dedicated and distinguished efforts in club activities for the academic year 1446 AH, which significantly contributed to the club's success and excellence.
+                                Certificate of Appreciation from the Google Developer Student Club (GDSC) at Shaqra University, recognizing dedicated and distinguished efforts in club activities for the academic year 1446 AH, which significantly contributed to the club's success and excellence.
                             </p>
                         </div>
                     </div>
@@ -590,7 +621,7 @@
                         <div class="award-content">
                             <h3 class="award-title">Research & Entrepreneurship Exhibition Certificate</h3>
                             <p class="award-description">
-                                Certificate of Appreciation from Shaqra University Deanship of Research and Entrepreneurship for participation in the Research Poster and Innovation Exhibition (25th edition), featuring the Mulhim: AI for Smart Course Assessment project.
+                                Certificate of Appreciation from Shaqra University Deanship of Research and Entrepreneurship for participation in the Research Poster and Innovation Exhibition (25th edition), featuring the "Mulhim: AI for Smart Course Assessment" project.
                             </p>
                         </div>
                     </div>
@@ -601,7 +632,7 @@
 
     <div class="details-container" id="external-achievements-page">
         <header class="details-header">
-            <h1 class="name" data-en="External Achievements" data-ar="الإنجازات الخارجية">External Achievements</h1>
+            <h1 class="name" data-en="External Achievements" data-ar="الإنجازات اللامنهجية">External Achievements</h1>
             <nav class="page-navigation">
                 <ul>
                     <li><a onclick="showPage('profile-page')" data-en="Main Page" data-ar="الصفحة الرئيسية">Main Page</a></li>
@@ -610,7 +641,7 @@
             </nav>
         </header>
         <section class="section">
-            <div class="section-header"><h2 class="section-title" data-en="Hackathons, Volunteering & Recognitions" data-ar="الهاكاثونات والتطوع والتكريمات">Hackathons, Volunteering & Recognitions</h2></div>
+            <div class="section-header"><h2 class="section-title" data-en="My External Achievements" data-ar="الإنجازات اللامنهجية">My External Achievements</h2></div>
             <div class="section-content">
                 <div class="awards-grid">
                     
@@ -621,7 +652,7 @@
                         <div class="award-content">
                             <h3 class="award-title">National Center for Non-Profit Sector Volunteer Certificate</h3>
                             <p class="award-description">
-                                Certificate of Volunteering recognizing 70 hours contributed (July 9-28, 2023) where I served as the Monitoring and Development Lead for the volunteer opportunity (contributing to program preparations and arrangements).
+                                Certificate of Volunteering recognizing 70 hours contributed (July 2023) as the Monitoring and Development Lead, successfully overseeing program preparations and execution.
                             </p>
                         </div>
                     </div>
@@ -633,7 +664,7 @@
                         <div class="award-content">
                             <h3 class="award-title">KSU Student Partnership Hackathon</h3>
                             <p class="award-description">
-                                Certificate of Appreciation from King Saud University's Student Partnership Program for participating in the fourth edition of the KSU Hackathon (1445 AH), promoting partnership and active contribution.
+                                Certificate of Appreciation from King Saud University's Student Partnership Program for active participation and contribution to the fourth edition of the KSU Hackathon (1445 AH).
                             </p>
                         </div>
                     </div>
@@ -645,7 +676,7 @@
                         <div class="award-content">
                             <h3 class="award-title">IAU Qualithon Certificate (Team Mulhim)</h3>
                             <p class="award-description">
-                                Recognition from Imam Abdulrahman Bin Faisal University (College of Science and Humanities - Jubail) for active participation and valuable contributions to the Qualithon Artificial Intelligence in Academic Quality Hackathon.
+                                Recognition from Imam Abdulrahman Bin Faisal University (College of Science and Humanities - Jubail) for valuable contributions and achieving 4th place in the Qualithon Artificial Intelligence Hackathon.
                             </p>
                         </div>
                     </div>
@@ -657,7 +688,19 @@
                         <div class="award-content">
                             <h3 class="award-title">Future Fintech Hackathon Participation</h3>
                             <p class="award-description">
-                                Recognition from King Saud University's Computer Science College, Future Technology Club, for active participation and distinguished efforts in the three-day Future Fintech Hackathon (September 5-7, 2025).
+                                Recognition from King Saud University's Computer Science College (Future Technology Club) for distinguished efforts in the three-day Future Fintech Hackathon (September 2025).
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="award-item" onclick="openModal('nytwk.png')">
+                        <div class="award-image">
+                            <img src="nytwk.png" alt="Neotech Organization Certificate">
+                        </div>
+                        <div class="award-content">
+                            <h3 class="award-title" data-en="Neotech Organization Certificate" data-ar="شهادة مؤسسة نويتك">Neotech Organization Certificate</h3>
+                            <p class="award-description" data-en="Certificate of Appreciation from Neotech Organization in recognition of outstanding efforts and valuable contributions to achieving the organization's goals." data-ar="شهادة شكر وتقدير من مؤسسة نويتك تقديراً للجهود المتميزة والمساهمات الفاعلة في تحقيق أهداف المؤسسة ومبادراتها.">
+                                Certificate of Appreciation from Neotech Organization in recognition of outstanding efforts and valuable contributions to achieving the organization's goals.
                             </p>
                         </div>
                     </div>
@@ -687,7 +730,7 @@
                         <div class="award-content">
                             <h3 class="award-title">Supervised Machine Learning: Classification</h3>
                             <p class="award-description">
-                                Course certificate authorized by IBM, offered through Coursera.
+                                Professional course certificate authorized by IBM, offered through Coursera.
                             </p>
                         </div>
                     </div>
@@ -699,7 +742,7 @@
                         <div class="award-content">
                             <h3 class="award-title">AWS Academy Graduate - Cloud Foundations</h3>
                             <p class="award-description">
-                                Training badge from AWS Academy for completing the Cloud Foundations course, 20 hours total, issued May 19, 2026.
+                                Training badge from AWS Academy for completing the 20-hour Cloud Foundations course.
                             </p>
                         </div>
                     </div>
@@ -711,7 +754,7 @@
                         <div class="award-content">
                             <h3 class="award-title">Python 103 (Advanced) - Satr Platform</h3>
                             <p class="award-description">
-                                Certificate of Attendance from Satr Platform (organized under Tuwaiq Academy) for completing an advanced-level Python 103 course, 3 hours total, taken as a recorded session rather than live.
+                                Certificate of Completion from Satr Platform (under Tuwaiq Academy) for an advanced-level Python course.
                             </p>
                         </div>
                     </div>
@@ -747,7 +790,7 @@
                         <div class="award-content">
                             <h3 class="award-title">Python Basics</h3>
                             <p class="award-description">
-                                Course certificate authorized by the University of Michigan, offered through Coursera (issued May 29, 2026).
+                                Course certificate authorized by the University of Michigan, offered through Coursera (Issued May 2026).
                             </p>
                         </div>
                     </div>
@@ -759,7 +802,7 @@
                         <div class="award-content">
                             <h3 class="award-title">Python Basics (Non-Credit)</h3>
                             <p class="award-description">
-                                Non-credit course certificate authorized by the University of Michigan, offered through Coursera (issued May 7, 2024).
+                                Non-credit course certificate authorized by the University of Michigan, offered through Coursera (Issued May 2024).
                             </p>
                         </div>
                     </div>
@@ -781,9 +824,9 @@
                             <img src="coursera-math-specialization.jpg" alt="Mathematics for Machine Learning and Data Science Specialization">
                         </div>
                         <div class="award-content">
-                            <h3 class="award-title">Mathematics for Machine Learning and Data Science (Specialization)</h3>
+                            <h3 class="award-title">Mathematics for ML and Data Science (Specialization)</h3>
                             <p class="award-description">
-                                Coursera specialization certificate covering Linear Algebra, Calculus, and Probability & Statistics for Machine Learning and Data Science, taught by Luis Serrano.
+                                Coursera specialization covering Linear Algebra, Calculus, and Probability & Statistics, taught by Luis Serrano.
                             </p>
                         </div>
                     </div>
@@ -793,7 +836,7 @@
                             <img src="coursera-linear-algebra.jpg" alt="Linear Algebra for Machine Learning and Data Science Certificate">
                         </div>
                         <div class="award-content">
-                            <h3 class="award-title">Linear Algebra for Machine Learning and Data Science</h3>
+                            <h3 class="award-title">Linear Algebra for ML and Data Science</h3>
                             <p class="award-description">
                                 Course certificate from DeepLearning.AI, offered through Coursera.
                             </p>
@@ -805,7 +848,7 @@
                             <img src="coursera-calculus.jpg" alt="Calculus for Machine Learning and Data Science Certificate">
                         </div>
                         <div class="award-content">
-                            <h3 class="award-title">Calculus for Machine Learning and Data Science</h3>
+                            <h3 class="award-title">Calculus for ML and Data Science</h3>
                             <p class="award-description">
                                 Course certificate from DeepLearning.AI, offered through Coursera.
                             </p>
@@ -817,7 +860,7 @@
                             <img src="coursera-probability-statistics.jpg" alt="Probability & Statistics for Machine Learning & Data Science Certificate">
                         </div>
                         <div class="award-content">
-                            <h3 class="award-title">Probability & Statistics for Machine Learning & Data Science</h3>
+                            <h3 class="award-title">Probability & Statistics for ML & Data Science</h3>
                             <p class="award-description">
                                 Course certificate from DeepLearning.AI, offered through Coursera.
                             </p>
@@ -831,7 +874,7 @@
                         <div class="award-content">
                             <h3 class="award-title">Introduction to Packet Tracer</h3>
                             <p class="award-description">
-                                Certificate of Course Completion from Cisco Networking Academy, College of Computing and Information Technology - Shaqra University.
+                                Certificate of Course Completion from Cisco Networking Academy, Shaqra University.
                             </p>
                         </div>
                     </div>
@@ -843,7 +886,7 @@
                         <div class="award-content">
                             <h3 class="award-title">CS205: Building with Artificial Intelligence</h3>
                             <p class="award-description">
-                                Certificate of achievement from Saylor Academy, 48 hours, grade 88.24%.
+                                Certificate of achievement from Saylor Academy (48 hours), completed with a grade of 88.24%.
                             </p>
                         </div>
                     </div>
@@ -873,7 +916,7 @@
                         <div class="award-content">
                             <h3 class="award-title">AI-Powered Pac-Man Simulation</h3>
                             <p class="award-description">
-                                An autonomous AI agent that learns to play Pac-Man with no pre-programmed rules, built in Python/Pygame. Combines Q-Learning (reinforcement learning) for Pac-Man's decisions with Breadth-First Search for the ghost's pathfinding.
+                                An autonomous AI agent built in Python/Pygame that learns to play Pac-Man. Combines Q-Learning for decision-making with Breadth-First Search for ghost pathfinding.
                             </p>
                             <a class="award-download" href="report ai 1.pdf" download onclick="event.stopPropagation()">Download Report</a>
                         </div>
@@ -886,7 +929,7 @@
                         <div class="award-content">
                             <h3 class="award-title">Blindless</h3>
                             <p class="award-description">
-                                A business project proposing smart electronic glasses that use guiding sensors and sound cues to help visually impaired people navigate and avoid obstacles independently.
+                                A proposal for smart electronic glasses utilizing guiding sensors and audio cues to assist visually impaired individuals in navigating and avoiding obstacles independently.
                             </p>
                             <a class="award-download" href="blindless.pdf" download onclick="event.stopPropagation()">Download Report</a>
                         </div>
@@ -899,7 +942,7 @@
                         <div class="award-content">
                             <h3 class="award-title">Car Body Type Classifier (CNN)</h3>
                             <p class="award-description">
-                                A deep learning classifier built in PyTorch that identifies seven car body types from images using a ResNet-18-based CNN, achieving 92.4% test accuracy.
+                                A deep learning classifier built in PyTorch using a ResNet-18-based CNN to identify seven car body types from images, achieving an impressive 92.4% test accuracy.
                             </p>
                             <a class="award-download" href="project report - dl.pdf" download onclick="event.stopPropagation()">Download Report</a>
                         </div>
@@ -912,21 +955,22 @@
                         <div class="award-content">
                             <h3 class="award-title">FIFA World Cup 2026 - ML Prediction System</h3>
                             <p class="award-description">
-                                A hierarchical machine learning pipeline predicting World Cup 2026 match outcomes, combining player-level XGBoost models, six regression models, and a Poisson GLM, with SHAP explainability and full group-stage predictions.
+                                A hierarchical machine learning pipeline to predict match outcomes, combining XGBoost models, regression models, and a Poisson GLM, enhanced with SHAP explainability.
                             </p>
                             <a class="award-download" href="FIFA WC2026 ML Report -.pdf" download onclick="event.stopPropagation()">Download Report</a>
                         </div>
                     </div>
 
-                    <div class="award-item" onclick="openModal('mulhim-pitch.jpg')">
+                    <div class="award-item" onclick="openModal('Poster mulhim.jpg')">
                         <div class="award-image">
-                            <img src="mulhim-pitch.jpg" alt="Mulhim: AI for Smart Course Assessment">
+                            <img src="Poster mulhim.jpg" alt="Mulhim: AI for Smart Course Assessment - Poster">
                         </div>
                         <div class="award-content">
                             <h3 class="award-title">Mulhim: AI for Smart Course Assessment</h3>
                             <p class="award-description">
-                                Final pitch presentation for Mulhim, an AI-powered project for smart course assessment, presented at Shaqra University's Research Poster and Innovation Exhibition.
+                                An AI-powered project for smart academic course assessment, successfully pitched at Shaqra University's Research Poster and Innovation Exhibition.
                             </p>
+                            <a class="award-download" href="Poster mulhim.jpg" download onclick="event.stopPropagation()">Download Poster</a>
                             <a class="award-download" href="Mulhim Final.pptx" download onclick="event.stopPropagation()">Download Presentation</a>
                         </div>
                     </div>
@@ -965,6 +1009,7 @@
             const pageElement = document.getElementById(pageId);
             pageElement.style.display = pageId === 'profile-page' ? 'flex' : 'block';
             pageElement.classList.add('fade-in');
+            window.scrollTo(0, 0);
 
             const detailsNav2 = document.getElementById('details-nav-2');
             const homeNav2 = document.getElementById('home-nav-2');
